@@ -13,5 +13,6 @@ func RegisterRouter(db *sqlx.DB) *gin.Engine {
 	router.Use(middlewares.CORSMiddleware)
 
 	RegisterBookRouter(router, db)
+	RegisterAuthRouter(router, db)
 	return router
 }
