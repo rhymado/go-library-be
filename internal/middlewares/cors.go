@@ -12,6 +12,8 @@ func CORSMiddleware(ctx *gin.Context) {
 	// Access-Control-Allow-Methods
 	// Access-Control-Allow-Headers
 	// Access-Control-Max-Age
+	// Access-Control-Expose-Headers
+	// Access-Control-Allow-Credentials
 	whitelistOrigin := []string{"http://127.0.0.1:5500", "https://preview-1181115.playcode.io"}
 	origin := ctx.GetHeader("Origin")
 	for _, worigin := range whitelistOrigin {
