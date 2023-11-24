@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"lib/internal/repositories"
 	"log"
 	"net/http"
@@ -18,6 +19,8 @@ func InitBookHandler(rep *repositories.BookRepository) *BookHandler {
 }
 
 func (b *BookHandler) GetAllBooks(ctx *gin.Context) {
+	auth := ctx.GetHeader("Authorization")
+	fmt.Println(auth)
 	page, _ := strconv.Atoi(ctx.Query("page"))
 	limit, _ := strconv.Atoi(ctx.Query("limit"))
 	result, err := b.ReadAllBooks(page, limit)
