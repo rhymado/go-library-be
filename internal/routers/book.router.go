@@ -13,4 +13,5 @@ func RegisterBookRouter(router *gin.Engine, db *sqlx.DB) {
 	bookRepository := repositories.InitBookRepository(db)
 	bookHandler := handlers.InitBookHandler(bookRepository)
 	bookRouter.GET("", bookHandler.GetAllBooks)
+	bookRouter.POST("", bookHandler.CreateBook)
 }

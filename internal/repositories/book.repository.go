@@ -38,3 +38,14 @@ func (b *BookRepository) ReadAllBooks(page int, limit int) ([]models.BookModel, 
 	}
 	return result, nil
 }
+
+func (b *BookRepository) CreateNewBook(body *models.BookModel) error {
+	query := "insert into books (book_name, authors_id, publishers_id, price, promo_id) values ($1, $2, $3, $4, $5)"
+
+	values := []any{body.BookName, body.AuthorId, body.PublisherId, body.Price, body.PromoId}
+
+	if _, err := b.Exec(query, values...); err != nil {
+		return err
+	}
+	return nil
+}
