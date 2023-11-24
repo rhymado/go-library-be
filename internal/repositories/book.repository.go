@@ -14,7 +14,7 @@ func InitBookRepository(db *sqlx.DB) *BookRepository {
 	return &BookRepository{db}
 }
 
-func (b *BookRepository) ReadAllBooks(page int, limit int) ([]models.BookModel, error) {
+func (b *BookRepository) ReadAllBooks(page int, limit int) ([]models.BookResponseModel, error) {
 	if page == 0 {
 		page = 1
 	}
@@ -31,7 +31,7 @@ func (b *BookRepository) ReadAllBooks(page int, limit int) ([]models.BookModel, 
 	offset := (page - 1) * limit
 	values := []any{limit, offset}
 
-	result := []models.BookModel{}
+	result := []models.BookResponseModel{}
 	err := b.Select(&result, query, values...)
 	if err != nil {
 		return nil, err

@@ -45,7 +45,9 @@ func (b *BookHandler) CreateBook(ctx *gin.Context) {
 	}
 
 	if _, err := govalidator.ValidateStruct(body); err != nil {
-		ctx.JSON(http.StatusBadRequest, err)
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"message": err.Error(),
+		})
 		return
 	}
 
