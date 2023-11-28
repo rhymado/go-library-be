@@ -32,13 +32,7 @@ func (a *AuthHandler) RegisterHandler(ctx *gin.Context) {
 		return
 	}
 
-	h := pkg.HashConfig{
-		Time:    3,
-		Memory:  64 * 1024,
-		Threads: 2,
-		KeyLen:  32,
-		SaltLen: 16,
-	}
+	h := pkg.InitHashConfig().UseDefaultConfig()
 	hashedPassword, err := h.GenHashedPassword(body.Password)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, err)

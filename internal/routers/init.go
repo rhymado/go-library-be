@@ -14,5 +14,10 @@ func RegisterRouter(db *sqlx.DB) *gin.Engine {
 
 	RegisterBookRouter(router, db)
 	RegisterAuthRouter(router, db)
+	RegisterUploadRouter(router, db)
+
+	router.Static("/images", "public/images")
+	router.Static("/docs", "public/docs")
+
 	return router
 }

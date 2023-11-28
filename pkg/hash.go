@@ -19,6 +19,40 @@ type HashConfig struct {
 	SaltLen uint32
 }
 
+func InitHashConfig() *HashConfig {
+	return &HashConfig{}
+}
+
+func (h *HashConfig) UseDefaultConfig() *HashConfig {
+	return &HashConfig{
+		Time:    3,
+		Memory:  64 * 1024,
+		Threads: 2,
+		KeyLen:  32,
+		SaltLen: 16,
+	}
+	// h.Time = 3
+	// h.Memory = 64 * 1024
+	// h.Threads = 2
+	// h.KeyLen = 32
+	// h.SaltLen = 16
+}
+
+func (h *HashConfig) UseConfig(threads uint8, time, memory, keyLen, saltLen uint32) *HashConfig {
+	return &HashConfig{
+		Time:    time,
+		Memory:  memory,
+		Threads: threads,
+		KeyLen:  keyLen,
+		SaltLen: saltLen,
+	}
+	// h.Time = time
+	// h.Memory = memory
+	// h.Threads = threads
+	// h.KeyLen = keyLen
+	// h.SaltLen = saltLen
+}
+
 func (h *HashConfig) genSalt() ([]byte, error) {
 	// salt = byte acak sepanjang saltLen
 	b := make([]byte, h.SaltLen)
