@@ -1,0 +1,18 @@
+build images
+$ docker build -t imageName dockerfile_dir
+
+build container
+$ docker run --name containerName -p containerPort:hostPort imageName
+
+bisa digunakan -d untuk jalan di background
+
+list container
+$ docker ps
+
+bisa gunakan -a untuk melihat semua container
+
+list images
+$ docker images
+
+list network
+$ docker network ls
