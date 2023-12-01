@@ -2,7 +2,7 @@ build images
 $ docker build -t imageName dockerfile_dir
 
 build container
-$ docker run --name containerName -p containerPort:hostPort imageName
+$ docker run --name containerName -p hostPort:containerPort imageName
 
 bisa digunakan -d untuk jalan di background
 
