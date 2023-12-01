@@ -16,3 +16,7 @@ $ docker images
 
 list network
 $ docker network ls
+
+inspeksi
+$ docker inspect namaCont/namaImages
+$ docker network inspect namaNet
