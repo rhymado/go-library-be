@@ -20,3 +20,14 @@ $ docker network ls
 inspeksi
 $ docker inspect namaCont/namaImages
 $ docker network inspect namaNet
+
+
+DOCKER COMPOSE
+
+create image, container and/or network based on docker compose
+$ docker compose up
+
+bisa ditambah -d untuk detach dari container
+
+remove image, container and/or network based on docker compose
+$ docker compose down
