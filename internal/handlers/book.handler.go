@@ -12,10 +12,10 @@ import (
 )
 
 type BookHandler struct {
-	*repositories.BookRepository
+	repositories.IBookRepository
 }
 
-func InitBookHandler(rep *repositories.BookRepository) *BookHandler {
+func InitBookHandler(rep repositories.IBookRepository) *BookHandler {
 	return &BookHandler{rep}
 }
 

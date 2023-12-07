@@ -6,6 +6,11 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+type IBookRepository interface {
+	ReadAllBooks(page int, limit int) ([]models.BookResponseModel, error)
+	CreateNewBook(body *models.BookModel) error
+}
+
 type BookRepository struct {
 	*sqlx.DB
 }

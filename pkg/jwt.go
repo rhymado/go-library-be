@@ -40,7 +40,6 @@ func VerifyToken(token string) (*claims, error) {
 	parsedToken, err := jwt.ParseWithClaims(token, &claims{}, func(t *jwt.Token) (interface{}, error) {
 		return []byte(jwtSecret), nil
 	})
-
 	if err != nil {
 		return nil, err
 	}

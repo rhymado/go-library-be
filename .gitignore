@@ -7,3 +7,6 @@ docker-compose.yaml
 docker-compose.yml
 compose.yaml
 compose.yml
+
+*_test.go
+*_mock.go
